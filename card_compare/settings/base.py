@@ -17,7 +17,10 @@ from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # sys.path.append(str(BASE_DIR / "apps"))
+PROJECT_DIR = Path(__file__).ancestor(2)
+PROJECT_APPS = Path(__file__).ancestor(2)
 
+sys.path.insert(0, Path(PROJECT_APPS, 'apps'))
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -32,6 +35,8 @@ SECRET_KEY = 'django-insecure-vr_i)8_e5hk^0pt3%)7a0qc&u5zs-bzv$gv1@10!$y32p%t98i
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+
+# FILE_UPLOAD_STORAGE = config("FILE_UPLOAD_STORAGE", default="local")
 
 
 # Application definition
